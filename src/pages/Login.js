@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { loginAction } from '../redux/actions/index';
 
 class Login extends React.Component {
@@ -23,9 +22,9 @@ class Login extends React.Component {
 
   validateInputName = () => {
     const { email, password } = this.state;
-    const passWordLength = 6;
+    const passowordLength = 6;
     const regex = /\S+@\S+\.\S+/;
-    if (password.length >= passWordLength && regex.test(email)) {
+    if (password.length >= passowordLength && regex.test(email)) {
       this.setState({
         buttonIsDisabled: false,
       }, () => {});
@@ -69,15 +68,13 @@ class Login extends React.Component {
             onChange={ this.onInputChange }
           />
           <br />
-          <Link to="/carteira">
-            <button
-              type="submit"
-              disabled={ buttonIsDisabled }
-              onClick={ this.onSaveButtonClick }
-            >
-              Entrar
-            </button>
-          </Link>
+          <button
+            type="submit"
+            disabled={ buttonIsDisabled }
+            onClick={ this.onSaveButtonClick }
+          >
+            Entrar
+          </button>
         </form>
       </div>
     );
