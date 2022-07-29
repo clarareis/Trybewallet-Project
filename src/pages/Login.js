@@ -22,9 +22,9 @@ class Login extends React.Component {
 
   validateInputName = () => {
     const { email, password } = this.state;
-    const passowordLength = 6;
+    const passWordLength = 6;
     const regex = /\S+@\S+\.\S+/;
-    if (password.length >= passowordLength && regex.test(email)) {
+    if (password.length >= passWordLength && regex.test(email)) {
       this.setState({
         buttonIsDisabled: false,
       }, () => {});
