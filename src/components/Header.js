@@ -30,7 +30,7 @@ const mapStateToProps = (store) => ({
 });
 
 Header.propTypes = {
-  email: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Header);
