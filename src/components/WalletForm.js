@@ -113,9 +113,56 @@ class WalletForm extends Component {
               type="submit"
               // onClick={ this.onSaveButtonClick }
             >
-              Adicionar Despesa
-            </button>
-          </form>
+              {
+                currencies
+                  .map((element, index) => <option key={ index }>{ element }</option>)
+              }
+            </select>
+          </label>
+          <label htmlFor="payment">
+            Meio de pagamento:
+            <select
+              name="money"
+              value="Dinheiro"
+              data-testid="method-input"
+              id="payment"
+              onChange={ this.onInputChange }
+            >
+              <option value="dinheiro">Dinheiro</option>
+              <option value="cartão de crédito">Cartão de crédito</option>
+              <option value="cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
+          <label htmlFor="category">
+            Categoria:
+            <select
+              value="alimentacao"
+              data-testid="tag-input"
+              id="category"
+              name="selectCategory"
+              onChange={ this.onInputChange }
+            >
+              <option value="alimentacao">Alimentação</option>
+              <option value="lazer">Lazer</option>
+              <option value="trabalho">Trabalho</option>
+              <option value="transporte">Transporte</option>
+              <option value="saude">Saúde</option>
+            </select>
+          </label>
+          <label htmlFor="description">
+            Descrição da Despesa:
+            <input
+              data-testid="description-input"
+              placeholder="Descrição da despesa"
+              id="description"
+              name="description"
+            />
+          </label>
+          <button
+            type="submit"
+          >
+            Adicionar Despesa
+          </button>
         </div>
       );
     }
