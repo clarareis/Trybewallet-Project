@@ -20,14 +20,14 @@ export const responseApiFailure = (error) => ({
   error,
 });
 
-export const fetchAPI = () => async (dispatch) => {
-  dispatch(requestAPI());
+/* export const fetchAPI = async () => {
+  requestAPI();
   try {
     const request = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await request.json();
     const currencies = Object.keys(data).filter((e) => e !== 'USDT');
-    dispatch(responseApiSucess(currencies));
+    responseApiSucess(currencies);
   } catch (error) {
-    dispatch(responseApiFailure(error));
+    responseApiFailure(error);
   }
-};
+}; */
