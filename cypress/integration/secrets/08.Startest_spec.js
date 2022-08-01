@@ -35,7 +35,7 @@ describe('Requisito 8 Startest não avaliativo', () => {
   it('🌟 Startest - Desenvolva os testes automatizados do requisito 8 com relação ao componente Header', async () => {
     const headerStartest = new Startest({
       testFileName: '08.star.test.js',
-      componentPath: 'src/components/header',
+      componentPath: 'src/components/Header',
       mockName: 'HeaderDelete',
       defaultProps: {
         isTotalCorrect: true,
