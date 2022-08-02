@@ -11,9 +11,8 @@ class WalletForm extends Component {
     };
   }
 
+  // teste
   componentDidMount() {
-    // const { fetchCurrency } = this.props;
-    // fetchCurrency();
     this.API();
   }
 
@@ -23,11 +22,9 @@ class WalletForm extends Component {
         const request = await fetch('https://economia.awesomeapi.com.br/json/all');
         const data = await request.json();
         const currencies = Object.keys(data).filter((e) => e !== 'USDT');
-        // console.log(currencies);
         fetchCurrency(currencies);
-        // responseApiSucess(currencies);
       } catch (error) {
-        // responseApiFailure(error);
+        return error;
       }
     };
 
@@ -43,69 +40,82 @@ class WalletForm extends Component {
       const { currencies } = this.props;
       return (
         <div>
-          <label htmlFor="value">
-            Valor:
-            <input
-              data-testid="value-input"
-              type="number"
-              name="number"
-              id="value"
-            />
-          </label>
-          <label htmlFor="select">
-            Moeda:
-            <select
-              data-testid="currency-input"
-              id="select"
-              name="currency"
-              value={ currency }
-              onChange={ this.onInputChange }
+          <form>
+            <label htmlFor="value">
+              Valor:
+              <input
+                data-testid="value-input"
+                type="number"
+                name="number"
+                id="value"
+                value="value"
+                onChange={ this.onInputChange }
+              />
+            </label>
+            <label htmlFor="select">
+              Moeda:
+              <select
+                data-testid="currency-input"
+                id="select"
+                name="currency"
+                value={ currency }
+                onChange={ this.onInputChange }
+              >
+                {
+                  currencies
+                    .map((element, index) => <option key={ index }>{ element }</option>)
+                }
+              </select>
+            </label>
+            <label htmlFor="payment">
+              Meio de pagamento:
+              <select
+                name="money"
+                // value="Dinheiro"
+                data-testid="method-input"
+                id="payment"
+                onChange={ this.onInputChange }
+              >
+                <option value="dinheiro">Dinheiro</option>
+                <option value="cartão de crédito">Cartão de crédito</option>
+                <option value="cartão de débito">Cartão de débito</option>
+              </select>
+            </label>
+            <label htmlFor="category">
+              Categoria:
+              <select
+                // value="alimentacao"
+                data-testid="tag-input"
+                id="category"
+                name="selectCategory"
+                onChange={ this.onInputChange }
+              >
+                <option value="alimentacao">Alimentação</option>
+                <option value="lazer">Lazer</option>
+                <option value="trabalho">Trabalho</option>
+                <option value="transporte">Transporte</option>
+                <option value="saude">Saúde</option>
+              </select>
+            </label>
+            <label htmlFor="description">
+              Descrição da Despesa:
+              <input
+                data-testid="description-input"
+                placeholder="Descrição da despesa"
+                id="description"
+                name="description"
+                type="text"
+                value="description"
+                onChange={ this.onInputChange }
+              />
+            </label>
+            <button
+              type="submit"
+              // onClick={ this.onSaveButtonClick }
             >
-              {
-                currencies
-                  .map((element, index) => <option key={ index }>{ element }</option>)
-              }
-            </select>
-          </label>
-          <label htmlFor="payment">
-            Meio de pagamento:
-            <select
-              name="money"
-              value="Dinheiro"
-              data-testid="method-input"
-              id="payment"
-              onChange={ this.onInputChange }
-            >
-              <option value="dinheiro">Dinheiro</option>
-              <option value="cartão de crédito">Cartão de crédito</option>
-              <option value="cartão de débito">Cartão de débito</option>
-            </select>
-          </label>
-          <label htmlFor="category">
-            Categoria:
-            <select
-              value="alimentacao"
-              data-testid="tag-input"
-              id="category"
-              name="selectCategory"
-              onChange={ this.onInputChange }
-            >
-              <option value="alimentacao">Alimentação</option>
-              <option value="lazer">Lazer</option>
-              <option value="trabalho">Trabalho</option>
-              <option value="transporte">Transporte</option>
-              <option value="saude">Saúde</option>
-            </select>
-          </label>
-          <label htmlFor="description">
-            Descrição da Despesa:
-            <input
-              data-testid="description-input"
-              placeholder="Descrição da despesa"
-              id="description"
-              name="description"
-            />
-          </label>
+              Adicionar Despesa
+            </button>
+          </form>
         </div>
       );
     }
@@ -118,6 +128,8 @@ WalletForm.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCurrency: (currencies) => dispatch(responseApiSucess(currencies)),
+  getExpenses: (expense) => dispatch(updateExpenses(expense)),
+  getValue: (value) => dispatch(totalSum(value)),
 });
 
 const mapStateToProps = (store) => ({
