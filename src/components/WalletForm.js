@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { responseApiSucess } from '../redux/actions';
+import { buttonExpense, responseApiSucess } from '../redux/actions';
 
 class WalletForm extends Component {
   constructor() {
     super();
     this.state = {
       currency: '',
+      value: '',
+      description: '',
+      tag: '',
+      methody: '',
     };
   }
 
@@ -102,6 +106,7 @@ class WalletForm extends Component {
               name="description"
             />
           </label>
+          <button type="submit">Adicionar Despesa</button>
         </div>
       );
     }
@@ -110,14 +115,17 @@ class WalletForm extends Component {
 WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   fetchCurrency: PropTypes.func.isRequired,
+  // getExpense: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCurrency: (currencies) => dispatch(responseApiSucess(currencies)),
+  getExpense: (expense) => dispatch(buttonExpense(expense)),
 });
 
 const mapStateToProps = (store) => ({
   currencies: store.wallet.currencies,
+  expense: store.wallet.expense,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);
