@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginAction } from '../redux/actions/index';
 
 class Login extends React.Component {
@@ -68,13 +69,15 @@ class Login extends React.Component {
             onChange={ this.onInputChange }
           />
           <br />
-          <button
-            type="submit"
-            disabled={ buttonIsDisabled }
-            onClick={ this.onSaveButtonClick }
-          >
-            Entrar
-          </button>
+          <Link to="/carteira">
+            <button
+              type="submit"
+              disabled={ buttonIsDisabled }
+              onClick={ this.onSaveButtonClick }
+            >
+              Entrar
+            </button>
+          </Link>
         </form>
       </div>
     );
