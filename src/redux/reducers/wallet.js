@@ -15,13 +15,6 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       currencies: action.payload,
     };
-  default:
-    return state;
-  }
-};
-
-export const buttonSave = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
   case BUTTON:
     return {
       ...state,
@@ -31,5 +24,17 @@ export const buttonSave = (state = INITIAL_STATE, action) => {
     return state;
   }
 };
+
+/* export const buttonSave = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+  case BUTTON:
+    return {
+      ...state,
+      expenses: [...state.expenses, action.payload],
+    };
+  default:
+    return state;
+  }
+}; */
 
 export default wallet;
