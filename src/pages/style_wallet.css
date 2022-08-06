@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.wallet{
+    width: 100vw;
+    height: 100vh;
+    background: #a701b3;
+    display: inline-block;
+    flex-direction: row;
+    line-height: 10px;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+#header{
+    margin-left: 75%;
+    display: flex;
+    flex-direction: row;
+};
+
+/* .paragraf {
+    padding: 100px;
+} */
+
+form {
+    background: var(--white);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow-2);
+    padding: 2rem 2.5rem;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 200px;
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    background: lightpink;
+    border: 1px solid blueviolet;
+  }

@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+#login{
+    width: 100vw;
+    height: 100vh;
+    background: #631969;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    cursor: pointer;
+    font-size: 1rem;
+    color: deeppink;
+    background: lightpink;
+    border: transparent;
+    border-radius: 5px;
+    /* letter-spacing: var(--letterSpacing); */
+    padding: 6px;
+    /* box-shadow: var(--shadow-1); */
+    /* transition: var(--transition); */
+    /* text-transform: capitalize; */
+    align-items: center;
+    width: 200px;
+    /* margin-right: 1rem; */
+  }
+  button:hover {
+    filter: brightness(110%);
+    box-shadow: var(--shadow-2);
+  }
+  
+  button:active {
+    box-shadow: var(--shadow-3);
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+
+  form {
+    background: var(--white);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow-2);
+    padding: 2rem 2.5rem;
+  }
+  
+  input,
+  textarea,
+  select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.7rem 0.75rem;
+    border-radius: 10px;
+    background: lightpink;
+    border: 1px solid blueviolet;
+  }

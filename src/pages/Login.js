@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginAction } from '../redux/actions/index';
+import './style_login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Login extends React.Component {
   render() {
     const { email, password, buttonIsDisabled } = this.state;
     return (
-      <div>
+      <div id="login">
         <form>
           <input
             data-testid="email-input"
@@ -71,6 +72,7 @@ class Login extends React.Component {
           <br />
           <Link to="/carteira">
             <button
+              className="button"
               type="submit"
               disabled={ buttonIsDisabled }
               onClick={ this.onSaveButtonClick }
